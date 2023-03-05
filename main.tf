@@ -68,8 +68,8 @@ resource "tls_private_key" "main" {
 
 
 
-resource "azurerm_kubernetes_cluster_node_pool" "example" {
-  for_each              = var.enable_node_pools ? var.node_pools : {}
+resource "azurerm_kubernetes_cluster_node_pool" "main" {
+  for_each              = var.node_pools
   kubernetes_cluster_id = azurerm_kubernetes_cluster.main.id
   vnet_subnet_id        = azurerm_subnet.main.id
 
