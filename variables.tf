@@ -282,16 +282,10 @@ variable "node_pools" {
     enable_auto_scaling    = bool
     enable_host_encryption = bool
     enable_node_public_ip  = bool
-    eviction_policy        = string
     max_pods               = number
-    mode                   = string
     node_labels            = map(string)
     node_taints            = list(string)
     os_disk_size_gb        = string
-    os_disk_type           = string
-    os_type                = string
-    priority               = string
-    vnet_subnet_id         = string
     max_count              = number
     min_count              = number
     node_count             = number

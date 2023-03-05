@@ -65,11 +65,8 @@ resource "tls_private_key" "main" {
   rsa_bits  = 4096
 }
 
-
-
-
 resource "azurerm_kubernetes_cluster_node_pool" "main" {
-  for_each              = var.node_pools
+  for_each              = var.enable_node_pools ? var.node_pools : {}
   kubernetes_cluster_id = azurerm_kubernetes_cluster.main.id
   vnet_subnet_id        = azurerm_subnet.main.id
 
@@ -83,7 +80,6 @@ resource "azurerm_kubernetes_cluster_node_pool" "main" {
   node_labels         = each.value.node_labels
   node_taints         = each.value.node_taints
   os_disk_size_gb     = each.value.os_disk_size_gb
-  os_disk_type        = each.value.os_disk_type
 
   tags = var.tags
 }
