@@ -43,7 +43,7 @@ variable "sku_tier" {
 
 variable "kubernetes_version" {
   type        = string
-  default     = "1.24.3"
+  default     = "1.24.9"
   description = "Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)."
 }
 
@@ -179,7 +179,7 @@ variable "node_resource_group" {
 variable "orchestrator_version" {
   type        = string
   description = "Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)"
-  default     = "1.24.3"
+  default     = "1.24.9"
 }
 
 variable "kubernetes_subnet_name" {
@@ -266,8 +266,17 @@ variable "admin_list" {
 
 }
 
+variable "enable_node_pools" {
+
+  type        = bool
+  default     = false
+  description = "Allow you to enable node pools"
+
+}
+
 variable "node_pools" {
   type = map(object({
+    name                   = string
     vm_size                = string
     zones                  = list(string)
     enable_auto_scaling    = bool
