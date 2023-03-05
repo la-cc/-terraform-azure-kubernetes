@@ -251,7 +251,7 @@ variable "identity" {
 
 variable "enable_aad_rbac" {
   type        = bool
-  default     = false
+  default     = true
   description = "Is Role Based Access Control based on Azure AD enabled?"
 
 }
