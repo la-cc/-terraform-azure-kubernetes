@@ -54,7 +54,7 @@ resource "azurerm_kubernetes_cluster" "main" {
     dns_service_ip     = cidrhost(var.service_cidr, -2)
     docker_bridge_cidr = var.docker_bridge_cidr
     network_policy     = var.network_policy
-    load_balancer_sku  = var.load_balancer_sku
+    load_balancer_sku  = var.enable_node_pools ? var.load_balancer_sku : "basic"
   }
 
   tags = var.tags

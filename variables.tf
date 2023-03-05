@@ -232,7 +232,7 @@ variable "network_policy" {
 
 variable "load_balancer_sku" {
   type        = string
-  default     = "basic"
+  default     = "standard"
   description = "Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are basic and standard. Defaults to standard"
 }
 
@@ -251,17 +251,15 @@ variable "identity" {
 
 variable "enable_aad_rbac" {
   type        = bool
-  default     = true
+  default     = false
   description = "Is Role Based Access Control based on Azure AD enabled?"
 
 }
 
 
 variable "admin_list" {
-  type = list(string)
-  default = [
-    "8a7042f2-9566-4adf-b9cd-272f39837378" #IT43_ADM
-  ]
+  type        = list(string)
+  default     = []
   description = "If rbac is enabled, the default admin will be set over aad groups"
 
 }
