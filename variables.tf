@@ -37,7 +37,7 @@ variable "vm_size" {
 
 variable "sku_tier" {
   type        = string
-  default     = "Paid"
+  default     = "Standard"
   description = "The SKU Tier that should be used for this Kubernetes Cluster. Possible values are Free and Paid (which includes the Uptime SLA). Defaults to Free"
 }
 
